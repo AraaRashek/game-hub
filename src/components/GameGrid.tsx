@@ -3,9 +3,20 @@ import { Game } from "../hooks/useGames";
 import useData from "../hooks/useData";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { Genre } from "../hooks/useGenres";
 
-const GameGrid = () => {
-  const { data, error, isLoading } = useData<Game>("/games");
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const GameGrid = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useData<Game>(
+    "/games",
+    {
+      params: { genres: selectedGenre?.id },
+    },
+    [selectedGenre?.id]
+  );
   const skeleton = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <>
@@ -15,7 +26,8 @@ const GameGrid = () => {
         spacing={10}
         padding={10}
       >
-        {isLoading && skeleton.map((skeleton) => <GameCardSkeleton />)}
+        {isLoading &&
+          skeleton.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {data.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
