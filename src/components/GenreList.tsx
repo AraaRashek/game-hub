@@ -9,12 +9,8 @@ import {
 } from "@chakra-ui/react";
 import useData from "../hooks/useData";
 import getCroppedImageUrl from "../hooks/image-crop";
+import { Genre } from "../hooks/useGenres";
 
-interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
 interface Props {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
