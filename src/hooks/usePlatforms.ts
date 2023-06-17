@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
+import ms from "ms";
 
 export interface Platform {
   id: number;
@@ -14,7 +15,7 @@ const usePlatforms = () =>
       apiClient
         .get<FetchResponse<Platform>>("/platforms/lists/parents")
         .then((res) => res.data),
-    staleTime: 60 * 60 * 24 * 1000, //24hours
+    staleTime: ms("24h"),
   });
 
 export default usePlatforms;
