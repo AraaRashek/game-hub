@@ -12,10 +12,10 @@ import useGenres, { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -38,7 +38,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               <Button
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 variant="link"
                 whiteSpace="normal"
                 textAlign="left"
