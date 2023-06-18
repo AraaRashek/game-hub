@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
-import useGameQueryStore from "../store";
+import useGameQueryStore from "../zustandStore";
 
 const PlatformSelector = () => {
   const { data, error } = usePlatforms();

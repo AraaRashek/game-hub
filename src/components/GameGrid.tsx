@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useGameQueryStore from "../store";
+import useGameQueryStore from "../zustandStore";
 
 const GameGrid = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);

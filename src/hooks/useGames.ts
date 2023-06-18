@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
 import { Platform } from "./usePlatforms";
-import { GameQuery } from "../store";
+import { GameQuery } from "../zustandStore";
 
 export interface Game {
   id: number;

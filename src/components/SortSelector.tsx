@@ -7,7 +7,7 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import useGameQueryStore from "../store";
+import useGameQueryStore from "../zustandStore";
 
 const SortSelector = () => {
   const sortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
