@@ -1,12 +1,7 @@
 import { useQuery } from "react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
 import ms from "ms";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "../interfaces/Platform";
 
 const usePlatforms = () =>
   useQuery({

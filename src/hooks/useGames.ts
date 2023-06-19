@@ -1,15 +1,7 @@
 import { useInfiniteQuery } from "react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
-import { Platform } from "./usePlatforms";
 import { GameQuery } from "../zustandStore";
-
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-}
+import { Game } from "../interfaces/Game";
 
 const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({

@@ -1,12 +1,7 @@
 import apiClient, { FetchResponse } from "../services/api-client";
 import ms from "ms";
 import { useQuery } from "react-query";
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
+import { Genre } from "../interfaces/Genre";
 
 const useGenres = () =>
   useQuery({
