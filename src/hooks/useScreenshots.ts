@@ -1,8 +1,6 @@
 import { useQuery } from "react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
 
-import ms from "ms";
-
 const useScreenShoots = (gameId?: number) => {
   return useQuery({
     queryKey: ["game", "ScreenShoots"],
